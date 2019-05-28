@@ -197,7 +197,7 @@ void TaskTxUart( void* taskParmPtr ){
 		gpioToggle( LED3 );
 		if( uartTxReady( UART_USB ) ){
 			sprintf( Txbuffer, "%s",BSend);
-			//Transmit_UART( 0 );   // La primera vez – con esto arranca
+			Transmit_UART( 0 );   // La primera vez – con esto arranca
 			uartWriteString(UART_USB,Txbuffer);
 		}
 		ModuleDinamicMemory_Free(&ModuleData, BSend);
