@@ -130,7 +130,7 @@ void Task_ToMinusculas_OP1( void* taskParmPtr ){
 	while(1){
 
 		rx = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP1,  portMAX_DELAY);
-		PrintUartMessageMutex("Task_ToMinusculas_OP1", SemMutexUart);
+//		PrintUartMessageMutex("Task_ToMinusculas_OP1", SemMutexUart);
 		packetToLower(rx);
 		ModuleDinamicMemory_send(&ModuleData,0,NULL,rx, xPointerQueue_3,portMAX_DELAY);
 
@@ -197,7 +197,7 @@ void TaskTxUart( void* taskParmPtr ){
 		gpioToggle( LED3 );
 		if( uartTxReady( UART_USB ) ){
 			sprintf( Txbuffer, "%s",BSend);
-			Transmit_UART( 0 );   // La primera vez – con esto arranca
+			//Transmit_UART( 0 );   // La primera vez – con esto arranca
 			uartWriteString(UART_USB,Txbuffer);
 		}
 		ModuleDinamicMemory_Free(&ModuleData, BSend);
