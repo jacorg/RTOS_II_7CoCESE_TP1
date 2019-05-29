@@ -15,7 +15,7 @@
 #include "semphr.h"
 #include <string.h>
 #include <stdlib.h>
-#include "../../freeRTOS2_01/inc/DriverDinamicMemoryRTOS.h"
+#include "DriverDinamicMemoryRTOS.h"
 
 /*offset apartir del SOF*/
 #define OFFSET_OP 		 1

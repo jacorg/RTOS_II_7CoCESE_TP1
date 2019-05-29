@@ -1,6 +1,6 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/out/libs/freertos/source/list.o: \
+RTOS2_prj/freeRTOS2_TP1/out/libs/freertos/source/list.o: \
  libs/freertos/source/list.c libs/freertos/include/FreeRTOS.h \
- examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/inc/FreeRTOSConfig.h \
+ RTOS2_prj/freeRTOS2_TP1/inc/FreeRTOSConfig.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
  libs/lpc_open/lpc_chip_43xx/inc/sys_config.h \
  libs/lpc_open/lpc_chip_43xx/inc/cmsis.h \

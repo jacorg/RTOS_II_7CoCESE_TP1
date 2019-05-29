@@ -8,9 +8,9 @@
 
 
 
-#include "../../freeRTOS2_01/inc/Task.h"
+#include "Task1.h"
 
-#include "../../freeRTOS2_01/inc/General.h"
+#include "General.h"
 
 /*Datos de Trama Recibida*/
 volatile DataFrame_t Data;
@@ -130,7 +130,6 @@ void Task_ToMinusculas_OP1( void* taskParmPtr ){
 	while(1){
 
 		rx = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP1,  portMAX_DELAY);
-//		PrintUartMessageMutex("Task_ToMinusculas_OP1", SemMutexUart);
 		packetToLower(rx);
 		ModuleDinamicMemory_send(&ModuleData,0,NULL,rx, xPointerQueue_3,portMAX_DELAY);
 
@@ -190,15 +189,21 @@ void Task_ReportHeap_OP3( void* taskParmPtr ){
 void TaskTxUart( void* taskParmPtr ){
 	char * BSend;
 	char Txbuffer[100];
+	static uint16_t cont=0;
 	while(true){
 
 		/*Recibe por la cola*/
 		BSend = ModuleDinamicMemory_receive(&ModuleData, xPointerQueue_3, portMAX_DELAY);
+		cont++;
 		gpioToggle( LED3 );
 		if( uartTxReady( UART_USB ) ){
 			sprintf( Txbuffer, "%s",BSend);
-			Transmit_UART( 0 );   // La primera vez – con esto arranca
+			//Transmit_UART( 0 );   // La primera vez – con esto arranca
 			uartWriteString(UART_USB,Txbuffer);
+		}
+		if(cont >= 100){
+
+			cont = 0;
 		}
 		ModuleDinamicMemory_Free(&ModuleData, BSend);
 	}

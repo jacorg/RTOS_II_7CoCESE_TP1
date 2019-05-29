@@ -1,0 +1,414 @@
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0035b4 00000094 t uartProcessIRQ
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b94 00000004 b rxIsrCallbackUART2Params
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b98 00000004 b txIsrCallbackUART2Params
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b9c 00000004 b rxIsrCallbackUART0
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002ba0 00000004 b txIsrCallbackUART0Params
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002ba4 00000004 b rxIsrCallbackUART3Params
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002ba8 00000004 b txIsrCallbackUART0
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bac 00000004 b txIsrCallbackUART3Params
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bb0 00000004 b txIsrCallbackUART2
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bb4 00000004 b txIsrCallbackUART3
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bb8 00000004 b rxIsrCallbackUART0Params
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004ecc 00000048 t lpcUarts
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bbc 00000004 b rxIsrCallbackUART2
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bc0 00000004 b rxIsrCallbackUART3
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000140 00000002 b cont.13304
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000148 00000004 b heap_end.4429
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000a28 00000064 t prvHeapInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000a8c 00000058 t prvInsertBlockIntoFreeList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1000014c 00000004 b xFreeBytesRemaining
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000150 00000004 b pxEnd
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000154 00000008 b xStart
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1000015c 00002000 b ucHeap
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1000215c 00000004 b xBlockAllocatedBit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002160 00000004 b xMinimumEverFreeBytesRemaining
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000c5c 0000001e t prvIsQueueFull
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000c7c 0000001a t prvIsQueueEmpty
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000c98 00000076 t prvCopyDataToQueue
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000d10 00000024 t prvCopyDataFromQueue
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000d34 0000006a t prvUnlockQueue
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000e20 00000022 t prvInitialiseNewQueue
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0010d0 00000018 t prvInitialiseMutex
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002164 000005a0 b uxTimerTaskStack.9436
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002704 00000168 b uxIdleTaskStack.9429
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1000286c 00000060 b xIdleTaskTCB.9428
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:100028cc 00000060 b xTimerTaskTCB.9435
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00147c 00000014 t prvTaskCheckFreeStackSpace
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001490 00000034 t prvResetNextTaskUnblockTime
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0014c4 00000092 t prvInitialiseNewTask
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001558 00000068 t prvInitialiseTaskLists
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0015c0 000000a8 t prvAddNewTaskToReadyList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001668 0000003a t prvDeleteTCB
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0016a4 00000044 t prvCheckTasksWaitingTermination
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0016e8 00000028 t prvIdleTask
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001710 00000094 t prvAddCurrentTaskToDelayedList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1000292c 00000004 b xNumOfOverflows
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002930 00000004 b pxDelayedTaskList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002934 00000004 b xSchedulerRunning
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002938 00000014 b xTasksWaitingTermination
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1000294c 00000004 b pxOverflowDelayedTaskList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002950 00000004 b uxPendedTicks
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002954 0000008c b pxReadyTasksLists
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:100029e0 00000004 b uxSchedulerSuspended
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:100029e4 00000004 b uxDeletedTasksWaitingCleanUp
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:100029e8 00000004 b uxCurrentNumberOfTasks
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:100029f0 00000014 b xPendingReadyList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a04 00000004 b xIdleTaskHandle
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a08 00000004 b xTickCount
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a0c 00000004 b xNextTaskUnblockTime
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a10 00000004 b uxTaskNumber
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a14 00000014 b xDelayedTaskList1
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a28 00000014 b xDelayedTaskList2
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a3c 00000014 b xSuspendedTaskList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a50 00000004 b uxTopReadyPriority
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a54 00000004 b xYieldPending
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002064 00000020 t prvGetNextExpireTime
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002084 00000048 t prvInsertTimerInActiveList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0020cc 0000006c t prvCheckForValidListAndQueue
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002138 00000040 t prvInitialiseNewTimer
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0024ec 00000016 t prvTimerTask
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0022a4 0000007c t prvSwitchTimerLists
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002320 0000002c t prvSampleTimeNow
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00234c 0000005c t prvProcessExpiredTimer
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0023a8 00000074 t prvProcessTimerOrBlockTask
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00241c 000000d0 t prvProcessReceivedCommands
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a58 00000004 b pxCurrentTimerList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a5c 00000014 b xActiveTimerList1
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a70 00000014 b xActiveTimerList2
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002a84 000000a0 b ucStaticTimerQueueStorage.10431
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b24 00000050 b xStaticTimerQueue.10430
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b74 00000004 b xLastTime.10380
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b78 00000004 b xTimerQueue
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b7c 00000004 b pxOverflowTimerList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b80 00000004 b xTimerTaskHandle
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002504 00000040 t prvTaskExitError
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002544 00000022 t prvPortStartFirstTask
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00256c 0000000e t vPortEnableVFP
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0025d0 t pxCurrentTCBConst2
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0026b0 t pxCurrentTCBConst
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b84 00000001 b ucMaxSysCallPriority
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b88 00000004 b ulMaxPRIGROUPValue
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000010 00000004 d uxCriticalNesting
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0028a8 00000040 t Board_LED_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0028e8 0000003c t Board_TEC_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002924 0000003c t Board_GPIO_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002960 00000030 t Board_ADC_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002990 00000038 t Board_SPI_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0029c8 00000024 t Board_I2C_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004d54 00000012 t GpioPorts
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004d70 00000008 t GpioButtons
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004d78 0000000c t GpioLeds
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004d84 00000004 t InitClkStates
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004d88 00000074 t pinmuxing
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002af0 0000002c t Chip_UART_GetIndex
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004dfc 00000008 t UART_BClock
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004e04 00000008 t UART_PClock
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002c94 00000014 t Chip_ADC_GetClockIndex
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002ca8 00000030 t getClkDiv
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002d58 000000a8 t pll_calc_divs
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002e00 00000104 t pll_get_frac
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002f04 00000048 t Chip_Clock_FindBaseClock
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003170 00000022 t Chip_Clock_GetDivRate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002b8c 00000008 b audio_usb_pll_freq
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004e18 0000006c t periph_to_base
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004e84 00000048 t InitClkStates
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000014 00000038 d i2c
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0034a0 00000014 t Chip_SSP_GetClockIndex
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0034b4 00000018 t Chip_SSP_GetPeriphClockIndex
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1000004c 00000004 d ClockSpeed
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bc4 00000004 b tickHookFunction
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bc8 00000030 b tickerObject.10593
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002bf8 00000008 b tickCounter
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c00 00000004 b callBackFuncParams
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003914 00000002 t errorOcurred
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003918 00000002 t doNothing
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000050 00000040 d timer_dd
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003a18 0000002c t gpioObtainPinInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c04 00000004 b g_hUsb
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003db8 00000010 t clearInterrupt
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003dc8 00000060 t serveInterrupt
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000090 00000048 d ultrasonicSensors
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a005060 00000003 t ultrasonicSensorsIrqMap
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:100000d8 00000060 d impure_data
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a080000 a __top_MFlashA512
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a005108 r __exidx_end
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a005108 r _etext
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:         U USB_StringDescriptor
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:         U USB_DeviceDescriptor
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:20008000 a __top_RamAHB32
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a005100 r __exidx_start
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:20010000 a __top_RamAHB_ETB16
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10008000 a __top_RamLoc32
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:         U Keyboard_ReportDescSize
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:2000c000 a __top_RamAHB16
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1008a000 a __top_RamLoc40
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a005100 t __init_array_end
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:         U Keyboard_ReportDescriptor
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:         U USB_DeviceQualifier
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0050fc b __preinit_array_end
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:         U USB_HsConfigDescriptor
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:         U USB_FsConfigDescriptor
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1b080000 a __top_MFlashB512
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0050fc t __init_array_start
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0050fc b __preinit_array_start
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004c9c 00000014 T _malloc_usable_size_r
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002f98 0000001c T Chip_Clock_GetDividerSource
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0044c0 00000010 T strcpy
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003eac 0000002e T __gnu_uldivmod_helper
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003998 00000040 T TIMER2_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0037ac 00000014 T uartRxRead
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000190 00000002 W DebugMon_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W RIT_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000c50 0000000c T xPortGetFreeHeapSize
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W ADCHS_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003ee0 0000029c T __divdi3
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000114 T __section_table_start
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W FLASH_EEPROM_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002624 0000002c T vPortExitCritical
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W I2C0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002a3c 00000008 T __stdio_init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00017c 00000002 W HardFault_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0003bc 00000038 T SelecQueueFromOperation
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001364 0000004c T vQueueWaitForMessageRestricted
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000000 A __vectors_start__
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002d4c 0000000c T Chip_ADC_SetResolution
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0026c0 0000002c T SysTick_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002b70 00000040 T Chip_UART_SetBaud
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000978 00000002 W initialise_monitor_handles
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0006bc 000000a8 T Task_ReportStack_OP2
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W SDIO_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W ATIMER_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004c1a 00000036 T memmove
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c10 00000004 B SemTxUart
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002650 00000064 T PendSV_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00058c 000000a0 T TaskService
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001100 000000e4 T xQueueGenericSendFromISR
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000178 00000002 W NMI_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000150 T __data_section_table_end
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c14 00000004 B xPointerQueue_OP2
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W I2C1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W UART1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W GPIO5_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W CAN1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:100029ec 00000004 B pxCurrentTCB
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:53ff6efe A __valid_user_code_checksum
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0003f4 00000036 T packetToLower
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W USB1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W I2S0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000890 00000018 T ModuleDinamicMemory_initialize
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001d18 00000018 T vTaskInternalSetTimeOutState
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0039d8 00000040 T TIMER3_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0031fc 0000000c T Chip_Clock_GetBaseClocktHz
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001d0 0000000a T UART0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001b8 00000012 T bss_init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002724 00000128 T xPortStartScheduler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004434 00000016 T memcpy
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001c24 00000030 T vTaskPlaceOnEventList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W SGPIO_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0046ec 000001e4 T _svfprintf_r
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0026ec 00000038 W vPortSetupTimerInterrupt
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003e4c T __aeabi_uldivmod
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002d10 ? _noinit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000bd8 00000078 T vPortFree
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00386c 00000018 T uartWriteString
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002d08 00000004 B SystemCoreClock
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002b1c 00000054 T Chip_UART_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00389c 0000002c T tickerCallback
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W ADC0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00284c 0000005c T vPortValidateInterruptPriority
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001dbc 00000018 T uxTaskGetStackHighWaterMark
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c18 00000004 B SemRxUart
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000188 00000002 W UsageFault_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003278 0000004c T Chip_Clock_GetRate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0013d0 00000018 T vListInsertEnd
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W GPIO6_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002a78 0000006c T Board_SetupClocking
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000a08 00000020 T _sbrk_r
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004d6c 00000004 T ExtRateIn
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W IntDefaultHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000300 T __CRP_WORD_END__
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0013c8 00000006 T vListInitialiseItem
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003e34 0000000a T GPIO1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0011e4 00000158 T xQueueReceive
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002cc8 00000040 B xQueueRegistry
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00145c 00000018 T vApplicationGetTimerTaskMemory
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W SSP0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0002fc 00000004 T CRP_WORD
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004c50 0000004c T _realloc_r
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0043e8 0000004c T __libc_init_array
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00417c 0000026a T __udivdi3
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W ADC1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000ae4 000000f4 T pvPortMalloc
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002a10 0000002c T Board_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000a04 00000002 W _init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0013b0 00000016 T vListInitialise
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000114 T __data_section_table
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c1c 00000004 B xPointerQueue_3
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001938 0000000c T xTaskGetTickCount
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000f40 00000190 T xQueueGenericSend
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W RTC_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002d10 B _ebss
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00391c 0000003c T TIMER0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00097c 00000088 T Reset_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0038c8 0000004c T tickInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W SPI_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003470 00000030 T Chip_I2C_SetClockRate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001df4 000000b4 T xTaskPriorityDisinherit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W LCD_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000870 00000020 T CallbackRx
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002f4c 0000004c T Chip_Clock_EnableCrystal
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001c8c 0000008c T xTaskRemoveFromEventList
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001478 00000002 T vApplicationMallocFailedHook
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00019c 0000001a T data_init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c20 00000004 B xTaskHandle_MayOP0
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003958 00000040 T TIMER1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0050a4 00000020 T __sf_fake_stderr
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c24 00000004 B xPointerQueue_OP3
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00344c 00000024 T Chip_I2C_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000568 00000024 T semaphoreCreateAll
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003884 0000000a T UART2_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000464 000000a4 T TaskCreateAll
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003108 00000068 T Chip_Clock_GetMainPLLHz
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004638 000000b2 T __ssputs_r
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004f20 00000140 T gpioPinsInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003648 00000094 T uartInterrupt
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003850 0000001a T uartWriteByte
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0034cc 00000012 T Chip_SSP_SetClockRate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00062c 00000048 T Task_ToMayusculas_OP0
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003c90 00000016 T gpioToggle
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003e40 0000000a T GPIO2_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004bfc 0000001e T memchr
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:         w _printf_float
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001d30 00000080 T xTaskCheckForTimeOut
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004504 00000088 T _free_r
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0031d8 00000024 T Chip_Clock_GetBaseClock
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000140 B _bss
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002d18 00000032 T Chip_ADC_SetSampleRate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000810 00000060 T TaskTxUart
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001928 00000010 T vTaskSuspendAll
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W I2S1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0034e0 0000003e T Chip_SSP_SetBitRate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00141c 00000026 T uxListRemove
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c28 0000006d B Data
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003428 00000002 T Chip_GPIO_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a004d68 00000004 T OscRateIn
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0037d4 0000007c T uartInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0017a4 0000007c T xTaskCreateStatic
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002d10 ? _end_noinit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10008000 A _vStackTop
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0044e0 00000024 T strncpy
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001b60 000000c4 T vTaskSwitchContext
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W SSP1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000e44 000000aa T xQueueGenericCreateStatic
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001c54 00000038 T vTaskPlaceOnEventListRestricted
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000178 T __bss_section_table_end
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c98 00000020 B ModuleData
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003a44 0000019c T gpioInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001ea8 00000098 T xTaskNotifyWait
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001444 00000018 T vApplicationGetIdleTaskMemory
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002238 0000006c T xTimerGenericCommand
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001474 00000002 T vApplicationStackOverflowHook
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003edc 00000002 W __aeabi_ldiv0
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003ca8 0000001c T USB0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W GPIO3_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000144 00000004 B xTaskHandle_RxNotify
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W SCT_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a005064 00000020 T __sf_fake_stdin
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002fb4 0000001c T Chip_Clock_GetDividerDivisor
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0002fc T __CRP_WORD_START__
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00444a 00000010 T memset
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000180 00000002 W MemManage_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000904 00000074 T main
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0008f8 0000000a T ModuleDinamicMemory_Free
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W WDT_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0013e8 00000034 T vListInsert
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002cb8 00000004 B SemMutexUart
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0025b0 00000024 T SVC_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002178 00000070 T xTimerCreateTimerTask
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00458c 000000ac T _malloc_r
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003794 00000018 T uartTxReady
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000764 000000ac T Task_ReportHeap_OP3
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W GPIO7_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003208 0000003c T Chip_Clock_EnableOpts
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000ef0 00000050 T xQueueGenericCreate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002fd0 000000b8 T Chip_Clock_GetClockInputHz
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003088 00000080 T Chip_Clock_CalcMainPLLValue
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003558 00000040 T SystemInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W SPIFI_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001f40 00000124 T xTaskGenericNotifyFromISR
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W QEI_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000150 T __bss_section_table
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003be0 00000058 T gpioWrite
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001a68 000000f8 T xTaskResumeAll
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00445c 00000048 T sprintf
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001888 000000a0 T vTaskStartScheduler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002cd8 00000040 T Chip_ADC_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002d0c 00000004 B g_pUsbApi
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002a44 00000034 T Board_SetupMuxing
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002bb0 000000e4 T Chip_UART_SetBaudFDR
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W ETH_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0048d0 000000ea T _printf_common
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000138 00000004 D _impure_ptr
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000000 ? _end_uninit_RESERVED
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0046ec 000001e4 T _svfiprintf_r
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0037c0 00000014 T uartTxWrite
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W CAN0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002cbc 00000004 B xTaskHandle_MinOP1
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000000 D _data
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001db0 0000000c T vTaskMissedYield
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002d10 B _pvHeapStart
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10000000 00000010 D Frame_parameters
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000178 T __section_table_end
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003520 00000038 T Chip_SSP_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00133c 00000028 T vQueueAddToRegistry
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W GINT0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000300 000000bc T Add_IncommingFrame
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001944 00000124 T xTaskIncrementTick
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W DAC_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0029ec 00000024 T Board_Debug_Init
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000da0 00000080 T xQueueGenericReset
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1000013c D _edata
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00342c 00000020 T Chip_I2C_EventHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W M0SUB_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001820 00000066 T xTaskCreate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0032d8 00000150 T Chip_SetupCoreClock
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003e28 0000000a T GPIO0_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000000 00000040 T g_pfnVectors
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0032c4 00000014 T SystemCoreClockUpdate
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00042c 00000036 T packetToUpper
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002cc0 00000004 B xPointerQueue_OP1
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W DMA_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W EVRT_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a005084 00000020 T __sf_fake_stdout
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a00445c 00000048 T siprintf
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a001dd4 00000020 T xTaskGetSchedulerState
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003edc 00000002 W __aeabi_idiv0
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000674 00000048 T Task_ToMinusculas_OP1
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0036dc 000000b8 T uartCallbackSet
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000184 00000002 W BusFault_Handler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0044d0 00000010 T strlen
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002580 0000002c T pxPortInitialiseStack
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0049bc 00000240 T _printf_i
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003244 00000034 T Chip_Clock_Enable
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003890 0000000a T UART3_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0008a8 0000003c T ModuleDinamicMemory_send
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c08 00000004 B __malloc_sbrk_start
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W MCPWM_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0021e8 0000004e T xTimerCreateStatic
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003e7c 0000002e T __gnu_ldivmod_helper
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002cc4 00000004 B xPointerQueue_OP0
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W M0APP_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0044a4 0000001c T strchr
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003c38 00000058 T gpioRead
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003cc4 000000f4 T boardInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0025e0 00000044 T vPortEnterCritical
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0008e4 00000014 T ModuleDinamicMemory_receive
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:10002c0c 00000004 B __malloc_free_list
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000040 000000d4 T g_pfnVendorVectors
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W GINT1_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a000508 00000060 T QueueCreateAll
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0010e8 00000016 T xQueueCreateMutex
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003194 00000044 T Chip_Clock_SetBaseClock
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a003598 0000001c T cyclesCounterInit
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a0001cc 00000002 W GPIO4_IRQHandler
+RTOS2_prj/freeRTOS2_TP1/out/freeRTOS2_TP1.elf:1a002ae4 0000000c T Board_SystemInit

@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_esp8266.o: \
+RTOS2_prj/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_esp8266.o: \
  libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_esp8266.c \
  libs/sapi/sapi_v0.5.2/base/inc/sapi.h \
  libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h \

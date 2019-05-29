@@ -8,8 +8,8 @@
 #ifndef EXAMPLES_C_SAPI_RTOS_FREERTOS_DYNAMIC_MEM_FREERTOS2_01_INC_GENERAL_H_
 #define EXAMPLES_C_SAPI_RTOS_FREERTOS_DYNAMIC_MEM_FREERTOS2_01_INC_GENERAL_H_
 
-#include "../../freeRTOS2_01/inc/DriverDinamicMemoryRTOS.h"
-#include "../../freeRTOS2_01/inc/Task.h"
+#include "DriverDinamicMemoryRTOS.h"
+#include "Task1.h"
 
 
 /*Almacena en el buffer de la RX ISR*/

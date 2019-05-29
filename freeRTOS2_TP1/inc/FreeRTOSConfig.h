@@ -101,6 +101,8 @@ extern int DbgConsole_Printf( const char *fmt_s, ... );
 #define INCLUDE_xTaskGetSchedulerState               1
 #define INCLUDE_xTimerPendFunctionCall               1
 #define INCLUDE_xSemaphoreGetMutexHolder             1
+// Agregado para RTOS2 - 29.5.2019
+#define INCLUDE_uxTaskGetStackHighWaterMark	         1
 
 /* Cortex-M specific definitions. */
 #ifdef __NVIC_PRIO_BITS

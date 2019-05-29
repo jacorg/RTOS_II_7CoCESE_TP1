@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/out/libs/lpc_open/lpc_chip_43xx/src/timer_18xx_43xx.o: \
+RTOS2_prj/freeRTOS2_TP1/out/libs/lpc_open/lpc_chip_43xx/src/timer_18xx_43xx.o: \
  libs/lpc_open/lpc_chip_43xx/src/timer_18xx_43xx.c \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
  libs/lpc_open/lpc_chip_43xx/inc/sys_config.h \

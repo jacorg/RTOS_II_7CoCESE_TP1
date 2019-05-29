@@ -1,8 +1,8 @@
 
 // Includes de FreeRTOS
-#include "../../freeRTOS2_01/inc/FreeRTOSConfig.h"
-#include "../../freeRTOS2_01/inc/General.h"
-#include "../../freeRTOS2_01/inc/Task.h"
+#include "Task1.h"
+#include "FreeRTOSConfig.h"
+#include "General.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "sapi.h"

@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_imu_mpu60X0.o: \
+RTOS2_prj/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_imu_mpu60X0.o: \
  libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_imu_mpu60X0.c \
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_imu_mpu60X0.h \
  libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h \

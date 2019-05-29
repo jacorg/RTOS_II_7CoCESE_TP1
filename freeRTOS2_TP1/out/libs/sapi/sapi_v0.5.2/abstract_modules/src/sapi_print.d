@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_print.o: \
+RTOS2_prj/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_print.o: \
  libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_print.c \
  libs/sapi/sapi_v0.5.2/abstract_modules/inc/sapi_print.h \
  libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h \

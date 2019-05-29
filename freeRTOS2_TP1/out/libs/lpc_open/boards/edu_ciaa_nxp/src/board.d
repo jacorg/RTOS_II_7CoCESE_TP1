@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o: \
+RTOS2_prj/freeRTOS2_TP1/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o: \
  libs/lpc_open/boards/edu_ciaa_nxp/src/board.c \
  libs/lpc_open/boards/edu_ciaa_nxp/inc/board.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \

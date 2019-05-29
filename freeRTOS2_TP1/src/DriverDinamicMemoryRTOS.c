@@ -1,7 +1,7 @@
 
-#include "../../freeRTOS2_01/inc/DriverDinamicMemoryRTOS.h"
+#include "DriverDinamicMemoryRTOS.h"
 
-#include "../../freeRTOS2_01/inc/Task.h"
+#include "Task1.h"
 
 void ModuleDinamicMemory_initialize( Module_Data_t *obj , uint32_t MaxLength, xQueueSendFCN xQueueSendFCN,xQueueSendFromISRFCN xQueueSendFromISRFCN, xQueueReceiveFCN xQueueReceiveFCN, xQueueCreateFCN xQueueCreateFCN, pvPortMallocFCN pvPortMallocFCN,vPortFreeFCN vPortFreeFCN){
 	obj->xMaxStringLength = MaxLength;

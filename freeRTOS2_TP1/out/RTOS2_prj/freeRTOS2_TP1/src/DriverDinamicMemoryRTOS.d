@@ -1,9 +1,8 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/out/examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/src/DriverDinamicMemoryRTOS.o: \
- examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/src/DriverDinamicMemoryRTOS.c \
- examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/src/../../freeRTOS2_01/inc/DriverDinamicMemoryRTOS.h \
- examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/src/../../freeRTOS2_01/inc/Task.h \
- libs/freertos/include/FreeRTOS.h \
- examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/inc/FreeRTOSConfig.h \
+RTOS2_prj/freeRTOS2_TP1/out/RTOS2_prj/freeRTOS2_TP1/src/DriverDinamicMemoryRTOS.o: \
+ RTOS2_prj/freeRTOS2_TP1/src/DriverDinamicMemoryRTOS.c \
+ RTOS2_prj/freeRTOS2_TP1/inc/DriverDinamicMemoryRTOS.h \
+ RTOS2_prj/freeRTOS2_TP1/inc/Task1.h libs/freertos/include/FreeRTOS.h \
+ RTOS2_prj/freeRTOS2_TP1/inc/FreeRTOSConfig.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
  libs/lpc_open/lpc_chip_43xx/inc/sys_config.h \
  libs/lpc_open/lpc_chip_43xx/inc/cmsis.h \
@@ -130,4 +129,4 @@ examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/out/examples/c/sapi/rtos_
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_ultrasonic_hcsr04.h \
  libs/freertos/include/queue.h libs/freertos/include/semphr.h \
  libs/freertos/include/queue.h \
- examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_01/src/../../freeRTOS2_01/inc/../../freeRTOS2_01/inc/DriverDinamicMemoryRTOS.h
+ RTOS2_prj/freeRTOS2_TP1/inc/DriverDinamicMemoryRTOS.h

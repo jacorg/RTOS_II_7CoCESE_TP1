@@ -5,7 +5,7 @@
  *      Author: julian
  */
 
-#include "../../freeRTOS2_01/inc/General.h"
+#include "General.h"
 
 
 /*=================================================================================
