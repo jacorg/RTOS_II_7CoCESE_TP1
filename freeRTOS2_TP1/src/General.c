@@ -72,7 +72,7 @@ void packetToLower(uint8_t *ptrToPacketLower){
 
 	uint16_t tSizePacket;
 	uint8_t i;
-	tSizePacket = ((*(ptrToPacketLower + OFFSET_TAMANO)) -'0')*256;
+	tSizePacket = ((*(ptrToPacketLower + OFFSET_TAMANO)) -'0')*10;
 	tSizePacket = tSizePacket + ( (*(ptrToPacketLower+OFFSET_OP+OFFSET_TAMANO)) -'0');
 	for(i = 0; i < tSizePacket ; i++){
 		if( *(ptrToPacketLower + i + OFFSET_DATO) >= MIN_LOWER &&  *(ptrToPacketLower + i + OFFSET_DATO) <= MAX_LOWER)
@@ -85,7 +85,7 @@ void packetToLower(uint8_t *ptrToPacketLower){
 void packetToUpper(uint8_t *ptrToPacketUpper){
 	uint16_t tSizePacket;
 	uint8_t i;
-	tSizePacket = ( *( ptrToPacketUpper + OFFSET_TAMANO) -'0')*256;
+	tSizePacket = ( *( ptrToPacketUpper + OFFSET_TAMANO) -'0')*10;
 	tSizePacket = tSizePacket + ( *( ptrToPacketUpper + OFFSET_OP+OFFSET_TAMANO) -'0');
 	for(i = 0;i < tSizePacket; i++){
 		if( *(ptrToPacketUpper + i + OFFSET_DATO) >= MIN_UPPER &&  *(ptrToPacketUpper + i + OFFSET_DATO) <= MAX_UPPER)
