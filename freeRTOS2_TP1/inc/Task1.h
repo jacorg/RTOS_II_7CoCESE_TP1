@@ -21,7 +21,7 @@
 #define OFFSET_OP 		 1
 #define OFFSET_TAMANO	 2
 #define OFFSET_DATO	  	 4
-#define MIN_LOWER		41
+#define MIN_LOWER		65
 #define MAX_LOWER		90
 #define MIN_UPPER		97
 #define MAX_UPPER		122
