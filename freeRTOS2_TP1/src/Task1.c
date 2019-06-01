@@ -142,20 +142,36 @@ void Task_ToMinusculas_OP1( void* taskParmPtr ){
  	 	 	 	 	 	 	 	 | Tarea Reportar stack disponible |
  =================================================================================*/
 void Task_ReportStack_OP2( void* taskParmPtr ){
-	UBaseType_t uxHighWaterMark;
+	volatile UBaseType_t uxHighWaterMark;
 	char *BSend;
 	char tempStack[30],BuffA[20];
+	char i=0;
+
 	while(1){
 		BSend = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP2,  portMAX_DELAY);
-		uxHighWaterMark = uxTaskGetStackHighWaterMark( &xTaskHandle_MayOP0);
-		memset(tempStack, 0, sizeof(tempStack ) );
-		sprintf(BuffA,"%u",uxHighWaterMark);
+		//uxHighWaterMark = uxTaskGetStackHighWaterMark( &xTaskHandle_MayOP0);
+		uxHighWaterMark = uxTaskGetStackHighWaterMark(NULL);
+
+		itoa(uxHighWaterMark,BuffA,10);
+		if(strlen(BuffA)<10)
+		   sprintf(BSend,"{20%d%s}",strlen(BuffA),BuffA);
+		else
+		   sprintf(BSend,"{2%d%s}",strlen(BuffA),BuffA);
+
+	/*
+	    for(i=0;i<strlen(BuffA);i++)
+		    *(BSend+i)=*(BuffA+i);
+		    *(BSend+i)=*(BuffA+i);*/
+
+
+	//	memset(tempStack, 0, sizeof(tempStack ) );
+	//	sprintf(BuffA,"%u",uxHighWaterMark);
 		//"{%c%u%u}"
-		sprintf(tempStack, "{200}",Frame_parameters.Operation,strlen(BuffA), uxHighWaterMark );
-		strncpy(BSend, tempStack, strlen(tempStack));
+	//	sprintf(tempStack, "{200}",Frame_parameters.Operation,strlen(BuffA), uxHighWaterMark );
 
 		// Enviar a cola de TaskTxUARt
 		ModuleDinamicMemory_send(&ModuleData,0,NULL,BSend, xPointerQueue_3,portMAX_DELAY);
+
 		/*Libera memoria dinamica*/
 		ModuleDinamicMemory_Free(&ModuleData, BSend);
 	}
@@ -169,13 +185,25 @@ void Task_ReportHeap_OP3( void* taskParmPtr ){
 	while(1){
 		BSend = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP3,  portMAX_DELAY);
 		/** Decodificar OP */
-		Frame_parameters.Operation = *(BSend +  OFFSET_OP)-'0';
-
+//		Frame_parameters.Operation = *(BSend +  OFFSET_OP)-'0';
+/*
 		memset(tempHeap, 0, sizeof(tempHeap) );
 		sprintf(BuffA,"%u",xPortGetFreeHeapSize());
 		//{%c%u%s}"
 		sprintf(tempHeap, "{300}", Frame_parameters.Operation,strlen(BuffA), xPortGetFreeHeapSize() );
 		strncpy(BSend, tempHeap, strlen(tempHeap));
+
+*/
+		itoa(xPortGetFreeHeapSize(),BuffA,10);
+		if(strlen(BuffA)<10)
+		  sprintf(BSend,"{30%d%s}",strlen(BuffA),BuffA);
+		else
+		  sprintf(BSend,"{3%d%s}",strlen(BuffA),BuffA);
+
+
+
+
+
 		// Enviar a cola de TaskTxUARt
 		ModuleDinamicMemory_send(&ModuleData,0,NULL,BSend, xPointerQueue_3,portMAX_DELAY);
 		/*Libera memoria dinamica*/

@@ -30,5 +30,5 @@ void TaskCreateAll(void);
 
 void QueueCreateAll(void);
 void semaphoreCreateAll(void);
-
+char* itoa(int value, char* result, int base);
 #endif /* EXAMPLES_C_SAPI_RTOS_FREERTOS_DYNAMIC_MEM_FREERTOS2_01_INC_GENERAL_H_ */
