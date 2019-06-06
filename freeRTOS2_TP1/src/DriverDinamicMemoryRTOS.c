@@ -14,8 +14,17 @@ void ModuleDinamicMemory_initialize( Module_Data_t *obj , uint32_t MaxLength, xQ
 }
 
 void ModuleDinamicMemory_send( Module_Data_t *obj ,uint8_t Isr, long * const xHigherPriorityTaskWoken, char* pbuf ,char * XpointerQueue, uint32_t portMaxDelay){
-	char* PcStringToSend = obj->pvPortMallocFunction( obj->xMaxStringLength );
-	strcpy(PcStringToSend ,pbuf);
+	static char* PcStringToSend = NULL;
+	if (PcStringToSend == NULL) PcStringToSend = obj->pvPortMallocFunction( obj->xMaxStringLength );
+	if(PcStringToSend != NULL) strcpy(PcStringToSend ,pbuf);
+
+	/*Si uso el enviar en una isr*/
+	if(Isr) obj->xQueueSendFromISRFunction(XpointerQueue ,&PcStringToSend,xHigherPriorityTaskWoken, 0);
+	else  obj->xQueueSendFunction(XpointerQueue ,&PcStringToSend,portMaxDelay, 0);
+}
+
+void ModuleDinamicMemory_send2( Module_Data_t *obj ,char *PcStringToSend, uint8_t Isr, long * const xHigherPriorityTaskWoken, char* pbuf ,char * XpointerQueue, uint32_t portMaxDelay){
+	if(PcStringToSend != NULL) strcpy(PcStringToSend ,pbuf);
 
 	/*Si uso el enviar en una isr*/
 	if(Isr) obj->xQueueSendFromISRFunction(XpointerQueue ,&PcStringToSend,xHigherPriorityTaskWoken, 0);

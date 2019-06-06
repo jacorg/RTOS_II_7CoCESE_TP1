@@ -33,7 +33,7 @@ typedef struct {
 void ModuleDinamicMemory_initialize( Module_Data_t *obj , uint32_t MaxLength, xQueueSendFCN xQueueSendFCN,xQueueSendFromISRFCN xQueueSendFromISRFCN, xQueueReceiveFCN xQueueReceiveFCN, xQueueCreateFCN xQueueCreateFCN, pvPortMallocFCN pvPortMallocFCN,vPortFreeFCN vPortFreeFCN);
 
 void ModuleDinamicMemory_send( Module_Data_t *obj ,uint8_t Isr,long * const xHigherPriorityTaskWoken, char* pbuf , char * XpointerQueue,uint32_t portMaxDelay);
-
+void ModuleDinamicMemory_send2( Module_Data_t *obj ,char *PcStringToSend, uint8_t Isr, long * const xHigherPriorityTaskWoken, char* pbuf ,char * XpointerQueue, uint32_t portMaxDelay);
 char* ModuleDinamicMemory_receive(Module_Data_t *obj, char * XpointerQueue ,uint32_t portMaxDelay);
 
 void ModuleDinamicMemory_Free(Module_Data_t *obj , char *ultimo_mensaje);

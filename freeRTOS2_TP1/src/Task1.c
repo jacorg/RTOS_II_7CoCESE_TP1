@@ -67,8 +67,9 @@ void TaskService( void* taskParmPtr )
 	char *PtrSOF = NULL;
 	char *PtrEOF = NULL;
 	void* XPointerQueUe = NULL; /*Puntero auxiliar  a cola*/
-
+	char *PcStringToSend;
 	while(TRUE) {
+		PcStringToSend = NULL;
 		/*Notifica que llego trama Buena*/
 		xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
 
@@ -96,8 +97,9 @@ void TaskService( void* taskParmPtr )
 		XPointerQueUe = SelecQueueFromOperation(Frame_parameters.Operation);
 
 		if(XPointerQueUe != NULL){
+			if (PcStringToSend == NULL) PcStringToSend = ModuleData.pvPortMallocFunction( ModuleData.xMaxStringLength );
 			/*Envía el puntero al buffer con la trama a la cola*/
-			ModuleDinamicMemory_send(&ModuleData,0,NULL,(char*)Frame_parameters.BufferAux,XPointerQueUe ,portMAX_DELAY);
+			ModuleDinamicMemory_send2(&ModuleData,PcStringToSend,0,NULL,(char*)Frame_parameters.BufferAux,XPointerQueUe ,portMAX_DELAY);
 		}
 		/*Libero memoria del buffer aux*/
 		ModuleData.vPortFreeFunction(Frame_parameters.BufferAux );
@@ -116,9 +118,9 @@ void Task_ToMayusculas_OP0( void* taskParmPtr ){
 		packetToUpper(rx);
 
 		// Enviar a cola de TaskTxUARt
-		ModuleDinamicMemory_send(&ModuleData,0,NULL,rx, xPointerQueue_3,portMAX_DELAY);
+		ModuleDinamicMemory_send2(&ModuleData,rx,0,NULL,rx, xPointerQueue_3,portMAX_DELAY);
 		/*Libera memoria dinamica*/
-		ModuleDinamicMemory_Free(&ModuleData, rx);
+		//ModuleDinamicMemory_Free(&ModuleData, rx);
 	}
 }
 
@@ -131,10 +133,10 @@ void Task_ToMinusculas_OP1( void* taskParmPtr ){
 
 		rx = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP1,  portMAX_DELAY);
 		packetToLower(rx);
-		ModuleDinamicMemory_send(&ModuleData,0,NULL,rx, xPointerQueue_3,portMAX_DELAY);
-
+		// Enviar a cola de TaskTxUARt
+		ModuleDinamicMemory_send2(&ModuleData,rx,0,NULL,rx, xPointerQueue_3,portMAX_DELAY);
 		/*Libera memoria dinamica*/
-		ModuleDinamicMemory_Free(&ModuleData, rx);
+		//ModuleDinamicMemory_Free(&ModuleData, rx);
 	}
 }
 
@@ -143,36 +145,28 @@ void Task_ToMinusculas_OP1( void* taskParmPtr ){
  =================================================================================*/
 void Task_ReportStack_OP2( void* taskParmPtr ){
 	volatile UBaseType_t uxHighWaterMark;
-	char *BSend;
-	char tempStack[30],BuffA[20];
-	char i=0;
+	char *BSend , *tempStack;
+	char BuffA[20];
+	char * PcStringToSend = NULL;
 
 	while(1){
+		PcStringToSend = NULL;
 		BSend = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP2,  portMAX_DELAY);
-		//uxHighWaterMark = uxTaskGetStackHighWaterMark( &xTaskHandle_MayOP0);
 		uxHighWaterMark = uxTaskGetStackHighWaterMark(NULL);
 
 		itoa(uxHighWaterMark,BuffA,10);
-		if(strlen(BuffA)<10)
-		   sprintf(BSend,"{20%d%s}",strlen(BuffA),BuffA);
-		else
-		   sprintf(BSend,"{2%d%s}",strlen(BuffA),BuffA);
-
-	/*
-	    for(i=0;i<strlen(BuffA);i++)
-		    *(BSend+i)=*(BuffA+i);
-		    *(BSend+i)=*(BuffA+i);*/
-
-
-	//	memset(tempStack, 0, sizeof(tempStack ) );
-	//	sprintf(BuffA,"%u",uxHighWaterMark);
-		//"{%c%u%u}"
-	//	sprintf(tempStack, "{200}",Frame_parameters.Operation,strlen(BuffA), uxHighWaterMark );
+		/*Puntero donde se copia el stack*/
+		if (PcStringToSend == NULL) PcStringToSend = ModuleData.pvPortMallocFunction(strlen(BuffA)+ NUM_ELEMENTOS_REST_FRAME);
+		if(PcStringToSend != NULL){
+			sprintf(PcStringToSend+2,"%02d%s}",strlen(BuffA),BuffA);
+			*PcStringToSend = *BSend;
+			*(PcStringToSend + 1) = *(BSend+1);
+		}
 
 		// Enviar a cola de TaskTxUARt
-		ModuleDinamicMemory_send(&ModuleData,0,NULL,BSend, xPointerQueue_3,portMAX_DELAY);
+		ModuleDinamicMemory_send2(&ModuleData,PcStringToSend,0,NULL,PcStringToSend, xPointerQueue_3,portMAX_DELAY);
 
-		/*Libera memoria dinamica*/
+		/*Libera memoria dinamica {200} recibido del buffer*/
 		ModuleDinamicMemory_Free(&ModuleData, BSend);
 	}
 }
@@ -180,33 +174,29 @@ void Task_ReportStack_OP2( void* taskParmPtr ){
  	 	 	 	 	 	 	 	 | Tarea Reportar heap disponible |
  =================================================================================*/
 void Task_ReportHeap_OP3( void* taskParmPtr ){
-	char *BSend;
-	char tempHeap[30],BuffA[22];
+
+	char *BSend , *tempStack;
+	char BuffA[20];
+	char * PcStringToSend = NULL;
+
 	while(1){
+		PcStringToSend = NULL;
 		BSend = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP3,  portMAX_DELAY);
-		/** Decodificar OP */
-//		Frame_parameters.Operation = *(BSend +  OFFSET_OP)-'0';
-/*
-		memset(tempHeap, 0, sizeof(tempHeap) );
-		sprintf(BuffA,"%u",xPortGetFreeHeapSize());
-		//{%c%u%s}"
-		sprintf(tempHeap, "{300}", Frame_parameters.Operation,strlen(BuffA), xPortGetFreeHeapSize() );
-		strncpy(BSend, tempHeap, strlen(tempHeap));
 
-*/
 		itoa(xPortGetFreeHeapSize(),BuffA,10);
-		if(strlen(BuffA)<10)
-		  sprintf(BSend,"{30%d%s}",strlen(BuffA),BuffA);
-		else
-		  sprintf(BSend,"{3%d%s}",strlen(BuffA),BuffA);
 
-
-
-
+		/*Puntero donde se copia el stack*/
+		if (PcStringToSend == NULL) PcStringToSend = ModuleData.pvPortMallocFunction(strlen(BuffA)+ NUM_ELEMENTOS_REST_FRAME);
+		if(PcStringToSend != NULL){
+			sprintf(PcStringToSend+2,"%02d%s}",strlen(BuffA),BuffA);
+			*PcStringToSend = *BSend;
+			*(PcStringToSend + 1) = *(BSend+1);
+		}
 
 		// Enviar a cola de TaskTxUARt
-		ModuleDinamicMemory_send(&ModuleData,0,NULL,BSend, xPointerQueue_3,portMAX_DELAY);
-		/*Libera memoria dinamica*/
+		ModuleDinamicMemory_send2(&ModuleData,PcStringToSend,0,NULL,PcStringToSend, xPointerQueue_3,portMAX_DELAY);
+
+		/*Libera memoria dinamica {300} recibido del buffer*/
 		ModuleDinamicMemory_Free(&ModuleData, BSend);
 	}
 }
@@ -217,21 +207,15 @@ void Task_ReportHeap_OP3( void* taskParmPtr ){
 void TaskTxUart( void* taskParmPtr ){
 	char * BSend;
 	char Txbuffer[100];
-	static uint16_t cont=0;
 	while(true){
 
 		/*Recibe por la cola*/
 		BSend = ModuleDinamicMemory_receive(&ModuleData, xPointerQueue_3, portMAX_DELAY);
-		cont++;
 		gpioToggle( LED3 );
 		if( uartTxReady( UART_USB ) ){
 			sprintf( Txbuffer, "%s",BSend);
 			//Transmit_UART( 0 );   // La primera vez – con esto arranca
 			uartWriteString(UART_USB,Txbuffer);
-		}
-		if(cont >= 100){
-
-			cont = 0;
 		}
 		ModuleDinamicMemory_Free(&ModuleData, BSend);
 	}
