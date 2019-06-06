@@ -27,7 +27,7 @@ int main(void){
 	TaskCreateAll();
 
 	/*Inicializar Driver memoria dinamica*/
-	ModuleDinamicMemory_initialize(&ModuleData,50,xQueueGenericSend,xQueueGenericSendFromISR, xQueueReceive,xQueueGenericCreate, pvPortMalloc, vPortFree);
+	ModuleDinamicMemory_initialize(&ModuleData,50,xQueueGenericSend,xQueueGenericSendFromISR, xQueueReceive,xQueueGenericCreate, pvPortMalloc, vPortFree, Add_IncommingFrame);
 
 	/* Iniciar scheduler*/
 	vTaskStartScheduler();

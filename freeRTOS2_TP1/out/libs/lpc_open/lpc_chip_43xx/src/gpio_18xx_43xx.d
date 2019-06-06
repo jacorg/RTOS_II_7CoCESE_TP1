@@ -1,4 +1,4 @@
-RTOS2_prj/freeRTOS2_TP1/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o: \
  libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.c \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
  libs/lpc_open/lpc_chip_43xx/inc/sys_config.h \

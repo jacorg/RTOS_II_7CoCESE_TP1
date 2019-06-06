@@ -16,6 +16,10 @@ typedef void* (*xQueueCreateFCN)(const unsigned long ,const unsigned long, const
 
 typedef long (*xQueueSendFromISRFCN)( void *, const void * const , long * const , const long );
 
+//void Add_IncommingFrame(UBaseType_t uxSavedInterruptStatus ,BaseType_t xHigherPriorityTaskWoken, volatile char c)
+typedef void (*Add_IncommingFrameFCN)(unsigned long  ,long , volatile char );
+
+
 /*Estructura Datos driver memoria Dinamica*/
 typedef struct {
     char *xPointerQueue;
@@ -26,11 +30,12 @@ typedef struct {
     pvPortMallocFCN pvPortMallocFunction;
     vPortFreeFCN vPortFreeFunction;
     xQueueCreateFCN xQueueCreateFunction;
+    Add_IncommingFrameFCN Add_IncommingFrameFunction;
 }Module_Data_t;
 
 
 /*Prototypes*/
-void ModuleDinamicMemory_initialize( Module_Data_t *obj , uint32_t MaxLength, xQueueSendFCN xQueueSendFCN,xQueueSendFromISRFCN xQueueSendFromISRFCN, xQueueReceiveFCN xQueueReceiveFCN, xQueueCreateFCN xQueueCreateFCN, pvPortMallocFCN pvPortMallocFCN,vPortFreeFCN vPortFreeFCN);
+void ModuleDinamicMemory_initialize( Module_Data_t *obj , uint32_t MaxLength, xQueueSendFCN xQueueSendFCN,xQueueSendFromISRFCN xQueueSendFromISRFCN, xQueueReceiveFCN xQueueReceiveFCN, xQueueCreateFCN xQueueCreateFCN, pvPortMallocFCN pvPortMallocFCN,vPortFreeFCN vPortFreeFCN,Add_IncommingFrameFCN Add_IncommingFrameFCN);
 
 void ModuleDinamicMemory_send( Module_Data_t *obj ,uint8_t Isr,long * const xHigherPriorityTaskWoken, char* pbuf , char * XpointerQueue,uint32_t portMaxDelay);
 void ModuleDinamicMemory_send2( Module_Data_t *obj ,char *PcStringToSend, uint8_t Isr, long * const xHigherPriorityTaskWoken, char* pbuf ,char * XpointerQueue, uint32_t portMaxDelay);

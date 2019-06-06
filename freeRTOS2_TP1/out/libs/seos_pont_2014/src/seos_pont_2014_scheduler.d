@@ -1,4 +1,4 @@
-RTOS2_prj/freeRTOS2_TP1/out/libs/seos_pont_2014//src/seos_pont_2014_scheduler.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/seos_pont_2014//src/seos_pont_2014_scheduler.o: \
  libs/seos_pont_2014//src/seos_pont_2014_scheduler.c \
  libs/seos_pont_2014//inc/seos_pont_2014_scheduler.h \
  libs/sapi/sapi_v0.5.2/base/inc/sapi.h \

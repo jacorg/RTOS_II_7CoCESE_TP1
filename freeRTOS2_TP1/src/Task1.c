@@ -55,54 +55,15 @@ TaskHandle_t xTaskHandle_MayOP0;
 TaskHandle_t xTaskHandle_MinOP1;
 
 
-
-
-
 /*=================================================================================
  	 	 	 	 	 	 	 	 | Tarea  |
  =================================================================================*/
 
-void TaskService( void* taskParmPtr )
-{
-	char *PtrSOF = NULL;
-	char *PtrEOF = NULL;
-	void* XPointerQueUe = NULL; /*Puntero auxiliar  a cola*/
-	char *PcStringToSend;
+void TaskService( void* taskParmPtr ){
 	while(TRUE) {
-		PcStringToSend = NULL;
 		/*Notifica que llego trama Buena*/
 		xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
-
-		/*Proteger datos para hacer copia local*/
-		taskENTER_CRITICAL();
-		Frame_parameters.BufferAux = ModuleData.pvPortMallocFunction(sizeof(Data.Buffer));
-		strcpy((char*)Frame_parameters.BufferAux,(const char*)Data.Buffer);
-		taskEXIT_CRITICAL();
-
-		/*Buscar posición del inicio de la trama*/
-		PtrSOF = strchr((const char*)Frame_parameters.BufferAux, Frame_parameters._SOF);
-
-		if( PtrSOF != NULL ){
-			/** Decodificar T :  T[0] -'0' *10 + T[1] - '0'*/
-			Frame_parameters.T[0] =  ( *(PtrSOF +  OFFSET_TAMANO)-'0' )*10 + (*(PtrSOF +  OFFSET_TAMANO + 1)-'0' ) ;
-
-			/** Decodificar OP */
-			Frame_parameters.Operation = *(PtrSOF +  OFFSET_OP)-'0';
-
-			/* Cantidad de memoria a reservar*/
-			ModuleData.xMaxStringLength = Frame_parameters.T[0] + NUM_ELEMENTOS_REST_FRAME;
-		}
-
-		/*Selecionar operaacion*/
-		XPointerQueUe = SelecQueueFromOperation(Frame_parameters.Operation);
-
-		if(XPointerQueUe != NULL){
-			if (PcStringToSend == NULL) PcStringToSend = ModuleData.pvPortMallocFunction( ModuleData.xMaxStringLength );
-			/*Envía el puntero al buffer con la trama a la cola*/
-			ModuleDinamicMemory_send2(&ModuleData,PcStringToSend,0,NULL,(char*)Frame_parameters.BufferAux,XPointerQueUe ,portMAX_DELAY);
-		}
-		/*Libero memoria del buffer aux*/
-		ModuleData.vPortFreeFunction(Frame_parameters.BufferAux );
+		Service(&ModuleData);
 		gpioToggle( LEDB );
 	}
 }
@@ -113,14 +74,10 @@ void TaskService( void* taskParmPtr )
 void Task_ToMayusculas_OP0( void* taskParmPtr ){
 	char * rx;
 	while(1){
-
 		rx = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP0,  portMAX_DELAY);
 		packetToUpper(rx);
-
 		// Enviar a cola de TaskTxUARt
 		ModuleDinamicMemory_send2(&ModuleData,rx,0,NULL,rx, xPointerQueue_3,portMAX_DELAY);
-		/*Libera memoria dinamica*/
-		//ModuleDinamicMemory_Free(&ModuleData, rx);
 	}
 }
 
@@ -130,13 +87,10 @@ void Task_ToMayusculas_OP0( void* taskParmPtr ){
 void Task_ToMinusculas_OP1( void* taskParmPtr ){
 	char * rx;
 	while(1){
-
 		rx = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP1,  portMAX_DELAY);
 		packetToLower(rx);
 		// Enviar a cola de TaskTxUARt
 		ModuleDinamicMemory_send2(&ModuleData,rx,0,NULL,rx, xPointerQueue_3,portMAX_DELAY);
-		/*Libera memoria dinamica*/
-		//ModuleDinamicMemory_Free(&ModuleData, rx);
 	}
 }
 
@@ -144,60 +98,16 @@ void Task_ToMinusculas_OP1( void* taskParmPtr ){
  	 	 	 	 	 	 	 	 | Tarea Reportar stack disponible |
  =================================================================================*/
 void Task_ReportStack_OP2( void* taskParmPtr ){
-	volatile UBaseType_t uxHighWaterMark;
-	char *BSend , *tempStack;
-	char BuffA[20];
-	char * PcStringToSend = NULL;
-
 	while(1){
-		PcStringToSend = NULL;
-		BSend = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP2,  portMAX_DELAY);
-		uxHighWaterMark = uxTaskGetStackHighWaterMark(NULL);
-
-		itoa(uxHighWaterMark,BuffA,10);
-		/*Puntero donde se copia el stack*/
-		if (PcStringToSend == NULL) PcStringToSend = ModuleData.pvPortMallocFunction(strlen(BuffA)+ NUM_ELEMENTOS_REST_FRAME);
-		if(PcStringToSend != NULL){
-			sprintf(PcStringToSend+2,"%02d%s}",strlen(BuffA),BuffA);
-			*PcStringToSend = *BSend;
-			*(PcStringToSend + 1) = *(BSend+1);
-		}
-
-		// Enviar a cola de TaskTxUARt
-		ModuleDinamicMemory_send2(&ModuleData,PcStringToSend,0,NULL,PcStringToSend, xPointerQueue_3,portMAX_DELAY);
-
-		/*Libera memoria dinamica {200} recibido del buffer*/
-		ModuleDinamicMemory_Free(&ModuleData, BSend);
+		Report(&ModuleData,xPointerQueue_OP2,STACK_);
 	}
 }
 /*=================================================================================
  	 	 	 	 	 	 	 	 | Tarea Reportar heap disponible |
  =================================================================================*/
 void Task_ReportHeap_OP3( void* taskParmPtr ){
-
-	char *BSend , *tempStack;
-	char BuffA[20];
-	char * PcStringToSend = NULL;
-
 	while(1){
-		PcStringToSend = NULL;
-		BSend = ModuleDinamicMemory_receive(&ModuleData,xPointerQueue_OP3,  portMAX_DELAY);
-
-		itoa(xPortGetFreeHeapSize(),BuffA,10);
-
-		/*Puntero donde se copia el stack*/
-		if (PcStringToSend == NULL) PcStringToSend = ModuleData.pvPortMallocFunction(strlen(BuffA)+ NUM_ELEMENTOS_REST_FRAME);
-		if(PcStringToSend != NULL){
-			sprintf(PcStringToSend+2,"%02d%s}",strlen(BuffA),BuffA);
-			*PcStringToSend = *BSend;
-			*(PcStringToSend + 1) = *(BSend+1);
-		}
-
-		// Enviar a cola de TaskTxUARt
-		ModuleDinamicMemory_send2(&ModuleData,PcStringToSend,0,NULL,PcStringToSend, xPointerQueue_3,portMAX_DELAY);
-
-		/*Libera memoria dinamica {300} recibido del buffer*/
-		ModuleDinamicMemory_Free(&ModuleData, BSend);
+		Report(&ModuleData,xPointerQueue_OP3,HEAP_);
 	}
 }
 
@@ -231,7 +141,8 @@ void CallbackRx( void *noUsado ){
 
 	volatile char c = uartRxRead( UART_USB );  /*Char received*/
 
-	Add_IncommingFrame(uxSavedInterruptStatus ,xHigherPriorityTaskWoken,c);
+	/*Funcion pertenece al driver*/
+	ModuleData.Add_IncommingFrameFunction(uxSavedInterruptStatus ,xHigherPriorityTaskWoken,c);
 
 	if(xHigherPriorityTaskWoken) portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }

@@ -1,4 +1,4 @@
-RTOS2_prj/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o: \
  libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.c \
  libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_tick.h \
  libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h \
@@ -66,7 +66,7 @@ RTOS2_prj/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.
  libs/lpc_open/boards/inc/board_api.h \
  libs/lpc_open/lpc_chip_43xx/inc/lpc_types.h \
  libs/freertos/include/FreeRTOS.h \
- RTOS2_prj/freeRTOS2_TP1/inc/FreeRTOSConfig.h \
+ examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/inc/FreeRTOSConfig.h \
  libs/freertos/include/private/projdefs.h \
  libs/freertos/include/private/portable.h \
  libs/freertos/include/private/deprecated_definitions.h \

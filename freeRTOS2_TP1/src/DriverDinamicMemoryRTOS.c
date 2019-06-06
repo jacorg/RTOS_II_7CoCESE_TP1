@@ -3,7 +3,7 @@
 
 #include "Task1.h"
 
-void ModuleDinamicMemory_initialize( Module_Data_t *obj , uint32_t MaxLength, xQueueSendFCN xQueueSendFCN,xQueueSendFromISRFCN xQueueSendFromISRFCN, xQueueReceiveFCN xQueueReceiveFCN, xQueueCreateFCN xQueueCreateFCN, pvPortMallocFCN pvPortMallocFCN,vPortFreeFCN vPortFreeFCN){
+void ModuleDinamicMemory_initialize( Module_Data_t *obj , uint32_t MaxLength, xQueueSendFCN xQueueSendFCN,xQueueSendFromISRFCN xQueueSendFromISRFCN, xQueueReceiveFCN xQueueReceiveFCN, xQueueCreateFCN xQueueCreateFCN, pvPortMallocFCN pvPortMallocFCN,vPortFreeFCN vPortFreeFCN, Add_IncommingFrameFCN Add_IncommingFrameFCN){
 	obj->xMaxStringLength = MaxLength;
 	obj->xQueueCreateFunction =xQueueCreateFCN;
 	obj->xQueueSendFunction = xQueueSendFCN;
@@ -11,6 +11,7 @@ void ModuleDinamicMemory_initialize( Module_Data_t *obj , uint32_t MaxLength, xQ
 	obj->xQueueReceiveFunction = xQueueReceiveFCN;
 	obj->pvPortMallocFunction = pvPortMallocFCN;
 	obj->vPortFreeFunction = vPortFreeFCN;
+	obj->Add_IncommingFrameFunction = Add_IncommingFrameFCN;
 }
 
 void ModuleDinamicMemory_send( Module_Data_t *obj ,uint8_t Isr, long * const xHigherPriorityTaskWoken, char* pbuf ,char * XpointerQueue, uint32_t portMaxDelay){
