@@ -1,5 +1,9 @@
+//TP!- Grupo 1:
+//Autores: Julian Bustamante Narvaez
+//         Rafael Oliva
+//         Gustavo Paredes Delayone
+//         Jacobo Salvador
 
-// Includes de FreeRTOS
 #include "Task1.h"
 #include "FreeRTOSConfig.h"
 #include "General.h"
@@ -10,11 +14,12 @@
 #include "sapi_uart.h"
 
 
-
-
 int main(void){
 
 	boardConfig();
+
+	QmPoolOrMalloc = eUseMalloc ;//eUseQMPool;
+
 	/*=======Config Uart===============================*/
 	uartConfig(UART_USB, 115200);
 	/*Callback interrupt*/
@@ -25,9 +30,11 @@ int main(void){
 	semaphoreCreateAll();
 	QueueCreateAll();
 	TaskCreateAll();
+	QMPools_inicializar();
+
 
 	/*Inicializar Driver memoria dinamica*/
-	ModuleDinamicMemory_initialize(&ModuleData,50,xQueueGenericSend,xQueueGenericSendFromISR, xQueueReceive,xQueueGenericCreate, pvPortMalloc, vPortFree, Add_IncommingFrame);
+	ModuleDinamicMemory_initialize(&ModuleData,50,xQueueGenericSend,xQueueGenericSendFromISR, xQueueReceive,xQueueGenericCreate, Memory_Get_,Memory_Free_, Add_IncommingFrame);
 
 	/* Iniciar scheduler*/
 	vTaskStartScheduler();

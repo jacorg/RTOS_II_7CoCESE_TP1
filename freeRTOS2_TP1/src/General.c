@@ -2,10 +2,11 @@
  * General.c
  *
  *  Created on: May 24, 2019
- *      Author: julian
+ *      Author: julian,jacobo,rafael,gustavo
  */
 
 #include "General.h"
+uint8_t QmPoolOrMalloc;
 
 
 /*=================================================================================
@@ -178,13 +179,12 @@ void Service(Module_Data_t *obj ){
 	char *PtrEOF = NULL;
 	void* XPointerQueUe = NULL; /*Puntero auxiliar  a cola*/
 	char *PcStringToSend;
-
 	PcStringToSend = NULL;
 
 	/*Proteger datos para hacer copia local*/
 	taskENTER_CRITICAL();
-	Frame_parameters.BufferAux = obj->pvPortMallocFunction(sizeof(Data.Buffer));
-	strcpy((char*)Frame_parameters.BufferAux,(const char*)Data.Buffer);
+		Frame_parameters.BufferAux = obj->MemoryAllocFunction(sizeof(Data.Buffer));
+		strcpy((char*)Frame_parameters.BufferAux,(const char*)Data.Buffer);
 	taskEXIT_CRITICAL();
 
 	/*Buscar posición del inicio de la trama*/
@@ -193,24 +193,22 @@ void Service(Module_Data_t *obj ){
 	if( PtrSOF != NULL ){
 		/** Decodificar T :  T[0] -'0' *10 + T[1] - '0'*/
 		Frame_parameters.T[0] =  ( *(PtrSOF +  OFFSET_TAMANO)-'0' )*10 + (*(PtrSOF +  OFFSET_TAMANO + 1)-'0' ) ;
-
 		/** Decodificar OP */
 		Frame_parameters.Operation = *(PtrSOF +  OFFSET_OP)-'0';
-
 		/* Cantidad de memoria a reservar*/
 		obj->xMaxStringLength = Frame_parameters.T[0] + NUM_ELEMENTOS_REST_FRAME;
 	}
 
 	/*Selecionar operaacion*/
 	XPointerQueUe = SelecQueueFromOperation(Frame_parameters.Operation);
-
 	if(XPointerQueUe != NULL){
-		if (PcStringToSend == NULL) PcStringToSend = obj->pvPortMallocFunction( obj->xMaxStringLength );
+		if (PcStringToSend == NULL) PcStringToSend = obj->MemoryAllocFunction( obj->xMaxStringLength );
 		/*Envía el puntero al buffer con la trama a la cola*/
 		ModuleDinamicMemory_send2(obj,PcStringToSend,0,NULL,(char*)Frame_parameters.BufferAux,XPointerQueUe ,portMAX_DELAY);
 	}
+
 	/*Libero memoria del buffer aux*/
-	ModuleData.vPortFreeFunction(Frame_parameters.BufferAux );
+	ModuleData.MemoryFreeFunction(Frame_parameters.BufferAux );
 }
 /*=================================================================================
  	 	 	 	 	 	 	     	Report  Heap = 1 or stack = 0
@@ -231,7 +229,9 @@ void Report( Module_Data_t *obj , char * XpointerQueue, uint8_t SelectHeapOrStac
 	itoa(Heap_Stack ,BuffA,10);
 
 	/*Puntero donde se copia el stack*/
-	if (PcStringToSend == NULL) PcStringToSend = obj->pvPortMallocFunction(strlen(BuffA)+ NUM_ELEMENTOS_REST_FRAME);
+
+	if (PcStringToSend == NULL) PcStringToSend = obj->MemoryAllocFunction(strlen(BuffA)+ NUM_ELEMENTOS_REST_FRAME);
+
 	if(PcStringToSend != NULL){
 		sprintf(PcStringToSend+2,"%02d%s}",strlen(BuffA),BuffA);
 		*PcStringToSend = *BSend;
@@ -242,8 +242,6 @@ void Report( Module_Data_t *obj , char * XpointerQueue, uint8_t SelectHeapOrStac
 	ModuleDinamicMemory_send2(obj,PcStringToSend,0,NULL,PcStringToSend, xPointerQueue_3,portMAX_DELAY);
 
 	/*Libera memoria dinamica {300} recibido del buffer*/
-	ModuleDinamicMemory_Free(obj, BSend);
-
-
+	ModuleData.MemoryFreeFunction( BSend);
 }
 

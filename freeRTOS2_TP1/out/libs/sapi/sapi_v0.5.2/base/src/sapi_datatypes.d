@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/base/src/sapi_datatypes.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/base/src/sapi_datatypes.o: \
  libs/sapi/sapi_v0.5.2/base/src/sapi_datatypes.c \
  libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \

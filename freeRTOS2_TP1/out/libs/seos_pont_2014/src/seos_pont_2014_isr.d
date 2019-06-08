@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/seos_pont_2014//src/seos_pont_2014_isr.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_TP1/out/libs/seos_pont_2014//src/seos_pont_2014_isr.o: \
  libs/seos_pont_2014//src/seos_pont_2014_isr.c \
  libs/seos_pont_2014//inc/seos_pont_2014_isr.h \
  libs/sapi/sapi_v0.5.2/base/inc/sapi.h \

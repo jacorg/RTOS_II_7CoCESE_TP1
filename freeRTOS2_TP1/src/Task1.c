@@ -2,11 +2,8 @@
  * Task.c
  *
  *  Created on: May 19, 2019
- *      Author: julian
+ *   Author: julian,jacobo,rafael,gustavo
  */
-
-
-
 
 #include "Task1.h"
 
@@ -18,14 +15,7 @@ volatile DataFrame_t Data;
 /*Datos de trama para decodificar */
 volatile Frame_parameters_t Frame_parameters = { '{',0 , {0,0}, NULL,NULL, '}' };
 
-/*Semaforo Sincronizar UartTx*/
-SemaphoreHandle_t SemTxUart;
-
-/*Semaforo Sincronizar UartRx*/
-SemaphoreHandle_t SemRxUart;
-
-/*Semaforo Mutex proteger Uart*/
-SemaphoreHandle_t SemMutexUart;
+SemaphoreHandle_t SemTxUart,SemRxUart, SemMutexUart;  /*UartTx*/ /*UartRx*/ /*Mutex proteger Uart*/
 
 /*instanciar Driver memoria dinamica*/
 Module_Data_t ModuleData;
@@ -34,26 +24,10 @@ Module_Data_t ModuleData;
 TaskHandle_t xTaskHandle_RxNotify = NULL;
 
 /*Puntero para crear la cola*/
-QueueHandle_t xPointerQueue_OP0;
-
-/*Puntero para crear la cola*/
-QueueHandle_t xPointerQueue_OP1;
-
-/*Puntero para crear la cola*/
-QueueHandle_t xPointerQueue_OP2;
-
-/*Puntero para crear la cola*/
-QueueHandle_t xPointerQueue_OP3;
-
-/*Puntero para crear la cola*/
-QueueHandle_t xPointerQueue_3;
+QueueHandle_t xPointerQueue_OP0, xPointerQueue_OP1, xPointerQueue_OP2, xPointerQueue_OP3,xPointerQueue_3;
 
 /**/
-TaskHandle_t xTaskHandle_MayOP0;
-
-/**/
-TaskHandle_t xTaskHandle_MinOP1;
-
+TaskHandle_t xTaskHandle_MayOP0, xTaskHandle_MinOP1;
 
 /*=================================================================================
  	 	 	 	 	 	 	 	 | Tarea  |
@@ -127,7 +101,7 @@ void TaskTxUart( void* taskParmPtr ){
 			//Transmit_UART( 0 );   // La primera vez – con esto arranca
 			uartWriteString(UART_USB,Txbuffer);
 		}
-		ModuleDinamicMemory_Free(&ModuleData, BSend);
+		ModuleData.MemoryFreeFunction(BSend);
 	}
 }
 
@@ -144,7 +118,7 @@ void CallbackRx( void *noUsado ){
 	/*Funcion pertenece al driver*/
 	ModuleData.Add_IncommingFrameFunction(uxSavedInterruptStatus ,xHigherPriorityTaskWoken,c);
 
-	if(xHigherPriorityTaskWoken) portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+	portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }
 /*=================================================================================
  	 	 	 	 	 	 | Callback IT TX | - 24.5.2019

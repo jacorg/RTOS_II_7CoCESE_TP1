@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/usbd_keyboard.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/usbd_keyboard.o: \
  libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/usbd_keyboard.c \
  libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/inc/usbd_keyboard.h \
  libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/inc/lpc_app_usbd_cfg.h \

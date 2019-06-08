@@ -1,7 +1,7 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/freertos/source/portable/ARM_CM4F/port.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_TP1/out/libs/freertos/source/portable/ARM_CM4F/port.o: \
  libs/freertos/source/portable/ARM_CM4F/port.c \
  libs/freertos/include/FreeRTOS.h \
- examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/inc/FreeRTOSConfig.h \
+ examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_TP1/inc/FreeRTOSConfig.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
  libs/lpc_open/lpc_chip_43xx/inc/sys_config.h \
  libs/lpc_open/lpc_chip_43xx/inc/cmsis.h \

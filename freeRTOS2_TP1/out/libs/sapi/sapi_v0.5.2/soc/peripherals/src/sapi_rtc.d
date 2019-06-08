@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o: \
  libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.c \
  libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_rtc.h \
  libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h \

@@ -1,4 +1,4 @@
-examples/c/sapi/rtos_freertos/dynamic_mem/RTOS_II_7CoCESE_TP1/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_magnetometer_hmc5883l.o: \
+examples/c/sapi/rtos_freertos/dynamic_mem/freeRTOS2_TP1/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_magnetometer_hmc5883l.o: \
  libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_magnetometer_hmc5883l.c \
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_magnetometer_hmc5883l.h \
  libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h \
