@@ -8,6 +8,15 @@
 #include "General.h"
 uint8_t QmPoolOrMalloc;
 
+volatile uint32_t * _DWT_CTRL = (uint32_t *)0xE0001000   ;
+volatile uint32_t * _DWT_CYCCNT = (uint32_t *)0xE0001004;
+
+
+volatile uint32_t *_DEMCR = (uint32_t *) 0xE000EDFC;
+volatile uint32_t *_LAR  = (uint32_t *)0xE0001FB0;   // <-- added lock access register
+
+                // clear DWT cycle counter
+//*_DWT_CONTROL = *_DWT_CONTROL | 1;  // enable DWT cycle counter
 
 /*=================================================================================
 						Almacena en el buffer de la RX ISR
@@ -24,8 +33,11 @@ void Add_IncommingFrame(UBaseType_t uxSavedInterruptStatus ,BaseType_t xHigherPr
 
 		if(InitTimeFlag) {
 			InitTimeFlag = 0;
-			cyclesCounterReset();
-			Data.t_sof = DWT_CYCCNT; //cyclesCounterToUs(DWT_CYCCNT); //cyclesCounterToUs
+			taskENTER_CRITICAL_FROM_ISR();
+				//cyclesCounterReset();
+			*_DWT_CYCCNT = 0;
+				Data.t_sof = cyclesCounterToUs(*_DWT_CYCCNT); //cyclesCounterToUs
+			taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
 		}
 		/*Proteger acceso al buffer*/
 		uxSavedInterruptStatus = taskENTER_CRITICAL_FROM_ISR();
@@ -41,7 +53,9 @@ void Add_IncommingFrame(UBaseType_t uxSavedInterruptStatus ,BaseType_t xHigherPr
 	if(_EOF == c){
 
 		InitTimeFlag = 1;
-		Data.t_eof = DWT_CYCCNT;//cyclesCounterToUs(DWT_CYCCNT);
+		taskENTER_CRITICAL_FROM_ISR();
+			Data.t_eof = cyclesCounterToUs(*_DWT_CYCCNT);
+			taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
 		Data.StartFrame = 0;
 		Data.Ready = 1;
 		/*Frame buena en el buffer*/

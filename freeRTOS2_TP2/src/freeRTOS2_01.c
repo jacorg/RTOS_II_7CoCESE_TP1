@@ -19,11 +19,9 @@ int main(void){
 	QmPoolOrMalloc = eUseMalloc ;//eUseQMPool;
 
 	// Timer para task_Medir_Performance
-
-	if(cyclesCounterInit(EDU_CIAA_NXP_CLOCK_SPEED) ) {
-		cyclesCounterReset();
-		/* TODO: Inicializo ok*/
-		}
+	*_DEMCR = *_DEMCR | 0x01000000;     // enable trace
+	*_LAR = 0xC5ACCE55;                // <-- added unlock access to DWT (ITM, etc.)registers
+	*_DWT_CTRL |= 1;
 
 
 	/*=======Config Uart===============================*/

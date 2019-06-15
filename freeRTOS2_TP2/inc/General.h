@@ -12,7 +12,10 @@
 #include "Task1.h"
 #include "qmpool.h"
 
-
+extern volatile uint32_t * _DWT_CTRL   ;
+extern volatile uint32_t * _DWT_CYCCNT;
+extern volatile uint32_t *_DEMCR;
+extern volatile uint32_t *_LAR;   // <-- added lock access register
 
 #define STACK_	0
 #define HEAP_	1
