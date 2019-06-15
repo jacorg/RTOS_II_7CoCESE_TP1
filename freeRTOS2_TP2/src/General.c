@@ -24,7 +24,8 @@ void Add_IncommingFrame(UBaseType_t uxSavedInterruptStatus ,BaseType_t xHigherPr
 
 		if(InitTimeFlag) {
 			InitTimeFlag = 0;
-			Data.t_sof = cyclesCounterToUs(DWT_CYCCNT); //cyclesCounterToUs
+			cyclesCounterReset();
+			Data.t_sof = DWT_CYCCNT; //cyclesCounterToUs(DWT_CYCCNT); //cyclesCounterToUs
 		}
 		/*Proteger acceso al buffer*/
 		uxSavedInterruptStatus = taskENTER_CRITICAL_FROM_ISR();
@@ -40,7 +41,7 @@ void Add_IncommingFrame(UBaseType_t uxSavedInterruptStatus ,BaseType_t xHigherPr
 	if(_EOF == c){
 
 		InitTimeFlag = 1;
-		Data.t_eof = cyclesCounterToUs(DWT_CYCCNT);
+		Data.t_eof = DWT_CYCCNT;//cyclesCounterToUs(DWT_CYCCNT);
 		Data.StartFrame = 0;
 		Data.Ready = 1;
 		/*Frame buena en el buffer*/
@@ -195,6 +196,7 @@ void Service(Module_Data_t *obj ){
 	void* XPointerQueUe = NULL; /*Puntero auxiliar  a cola*/
 	void *PcStringToSend;
 	PcStringToSend = NULL;
+	static uint8_t firstEntry = 0;
 
 
 	/*Proteger datos para hacer copia local*/
@@ -223,7 +225,12 @@ void Service(Module_Data_t *obj ){
 		Frame_parameters.Token->PayLoad = Frame_parameters.BufferAux; //{402ab}
 		Frame_parameters.Token->t_sof = Data.t_sof;
 		Frame_parameters.Token->t_eof = Data.t_eof;
+		if(!firstEntry){
+			firstEntry = 1;
+			Frame_parameters.Token->Id_de_paquete =0;
+		}
 		taskEXIT_CRITICAL();
+
 	}
 	/*Selecionar operaacion*/
 	XPointerQueUe = SelecQueueFromOperation(Frame_parameters.Operation);
@@ -238,7 +245,7 @@ void Service(Module_Data_t *obj ){
  =================================================================================*/
 
 void Report( Module_Data_t *obj , char * XpointerQueue, uint8_t SelectHeapOrStack){
-	Token_t Token;
+
 	Frame_parameters_t Frame_parameters;//TOKEN 10.6.19
 
 	uint64_t Heap_Stack;
