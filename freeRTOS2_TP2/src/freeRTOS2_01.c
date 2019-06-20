@@ -1,4 +1,9 @@
 
+/*=================================================================================
+ 	 	 	 	 	 	 	     	Grupo #1
+ 	 	 	 	 	 	 Jacobo,Gustavo, Rafael,Julian
+
+ =================================================================================*/
 
 #include "Task1.h"
 #include "FreeRTOSConfig.h"
@@ -9,8 +14,6 @@
 #include "semphr.h"
 #include "sapi_uart.h"
 
-
-//float lala = cyclesCounterToUs(*DWT_CYCCNT);
 
 int main(void){
 
@@ -26,8 +29,10 @@ int main(void){
 
 	/*=======Config Uart===============================*/
 	uartConfig(UART_USB, 115200);
+
 	/*Callback interrupt*/
 	uartCallbackSet(UART_USB, UART_RECEIVE, CallbackRx, NULL);
+
 	/*Habilito todas las interrupciones de UART_USB*/
 	uartInterrupt(UART_USB, true);
 
@@ -35,7 +40,6 @@ int main(void){
 	QueueCreateAll();
 	TaskCreateAll();
 	QMPools_inicializar();
-
 
 	/*Inicializar Driver memoria dinamica*/
 	ModuleDinamicMemory_initialize(&ModuleData,50,xQueueGenericSend,xQueueGenericSendFromISR, xQueueReceive,xQueueGenericCreate, Memory_Get_,Memory_Free_, Add_IncommingFrame);

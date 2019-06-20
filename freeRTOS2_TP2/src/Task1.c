@@ -3,6 +3,7 @@
  *
  *  Created on: May 19, 2019
  *   Author: julian,jacobo,rafael,gustavo
+ *   Grupo 1
  */
 
 #include "Task1.h"
@@ -121,22 +122,24 @@ void TaskTxUart( void* taskParmPtr ){
 			PtrSOF = strchr((const char*)Frame_parameters.BufferAux,_SOF);
 			Frame_parameters.Operation = *(PtrSOF +  OFFSET_OP)-'0';
 			if(Frame_parameters.Operation != OP4){
-				sprintf( Txbuffer, "%s",(Frame_parameters.BufferAux));
+				sprintf( Txbuffer, "%s\r\n",(Frame_parameters.BufferAux));
 				uartWriteString(UART_USB,Txbuffer);
 			}
 			else{
-				sprintf( Txbuffer, "\r\nPerformances:\r\n05%s ID:%d\r\nTiempos en us:\r\nTsof:%lu Teof:%lu Ticonv:%lu Teconv:%lu Tstx:%lu",(Frame_parameters.Token->PayLoad),Frame_parameters.Token->Id_de_paquete, Frame_parameters.Token->t_sof, Frame_parameters.Token->t_eof,Frame_parameters.Token->t_InitConvert,Frame_parameters.Token->t_EndConvert, (Frame_parameters.Token->t_InitTx = cyclesCounterToUs(*_DWT_CYCCNT)));
+				snprintf( Txbuffer,100, "\r\nPerformances:\r\n05%s ID:%d\r\nTiempos en us:\r\nTsof:%lu Teof:%lu Ticonv:%lu Teconv:%lu Tstx:%lu",(Frame_parameters.Token->PayLoad),Frame_parameters.Token->Id_de_paquete, Frame_parameters.Token->t_sof, Frame_parameters.Token->t_eof,Frame_parameters.Token->t_InitConvert,Frame_parameters.Token->t_EndConvert, (Frame_parameters.Token->t_InitTx = cyclesCounterToUs(*_DWT_CYCCNT)));
 				uartWriteString(UART_USB,Txbuffer);
 				memset(Txbuffer,0,sizeof(Txbuffer));
-				sprintf( Txbuffer, " Tetx:%lu\r\n",(Frame_parameters.Token->t_EndTx = cyclesCounterToUs(*_DWT_CYCCNT)));
+				snprintf( Txbuffer,100, " Tetx:%lu\r\n",(Frame_parameters.Token->t_EndTx = cyclesCounterToUs(*_DWT_CYCCNT)));
 				uartWriteString(UART_USB,Txbuffer);
 				memset(Txbuffer,0,sizeof(Txbuffer));
-				sprintf( Txbuffer, "[TimeProcPack] : %lu\r\n[TimeProcMayus] : %lu\r\n[TxTimeProc] : %lu\r\n",(Frame_parameters.Token->t_eof),(Frame_parameters.Token->t_EndConvert -Frame_parameters.Token->t_InitConvert), (Frame_parameters.Token->t_EndTx -Frame_parameters.Token->t_InitTx ) );
+				snprintf( Txbuffer,72, "[TimeProcPack] : %lu\r\n[TimeProcMayus] : %lu\r\n[TxTimeProc] : %lu\r\n",(Frame_parameters.Token->t_eof),(Frame_parameters.Token->t_EndConvert -Frame_parameters.Token->t_InitConvert), (Frame_parameters.Token->t_EndTx -Frame_parameters.Token->t_InitTx ) );
+				uartWriteString(UART_USB,Txbuffer);
+				memset(Txbuffer,0,sizeof(Txbuffer));
+				snprintf( Txbuffer,72, "[sizePack] : %d\r\n[sizemem] : %u \r\n",(strlen(Frame_parameters.BufferAux)),sizeof(Token_t) );
 				uartWriteString(UART_USB,Txbuffer);
 				Frame_parameters.Token->Id_de_paquete ++;
-			}
-			//Transmit_UART( 0 );   // La primera vez – con esto arranca
 
+			}
 
 		}
 		ModuleData.MemoryFreeFunction((Frame_parameters.BufferAux));

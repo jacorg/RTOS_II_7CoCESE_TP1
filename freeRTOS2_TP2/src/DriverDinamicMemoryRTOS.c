@@ -64,15 +64,10 @@ void ModuleDinamicMemory_send2( Module_Data_t *obj ,void *PcStringToSend, uint8_
 }
 
 void  ModuleDinamicMemory_receive(Module_Data_t *obj ,void * XpointerQueue, void * Frame_parameters, uint32_t portMaxDelay){
-
-	//char* pbuffer; /*Dato recibido*/
 	obj->xQueueReceiveFunction(XpointerQueue , Frame_parameters, portMaxDelay );
-	//return pbuffer;
 }
 
-void ModuleDinamicMemory_Free(Module_Data_t *obj , char *ultimo_mensaje){
-	//obj->vPortFreeFunction(ultimo_mensaje);
-}
+void ModuleDinamicMemory_Free(Module_Data_t *obj , char *ultimo_mensaje){ }
 
 
 /*

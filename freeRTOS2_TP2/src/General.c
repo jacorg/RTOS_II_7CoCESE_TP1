@@ -15,56 +15,6 @@ volatile uint32_t * _DWT_CYCCNT = (uint32_t *)0xE0001004;
 volatile uint32_t *_DEMCR = (uint32_t *) 0xE000EDFC;
 volatile uint32_t *_LAR  = (uint32_t *)0xE0001FB0;   // <-- added lock access register
 
-                // clear DWT cycle counter
-//*_DWT_CONTROL = *_DWT_CONTROL | 1;  // enable DWT cycle counter
-
-/*=================================================================================
-						Almacena en el buffer de la RX ISR
-=================================================================================*/
-void Add_IncommingFrame(UBaseType_t uxSavedInterruptStatus ,BaseType_t xHigherPriorityTaskWoken, volatile char c){
-	char *PtrSOF = NULL;
-	char *PtrEOF = NULL;
-	void* XPointerQueUe = NULL; /*Puntero auxiliar  a cola*/
-	static uint8_t InitTimeFlag = 1;
-	/*Verifica Inicio de trama*/
-	if(_SOF == c) Data.StartFrame = 1;
-
-	if(Data.StartFrame){
-
-		if(InitTimeFlag) {
-			InitTimeFlag = 0;
-			taskENTER_CRITICAL_FROM_ISR();
-				//cyclesCounterReset();
-			*_DWT_CYCCNT = 0;
-				Data.t_sof = cyclesCounterToUs(*_DWT_CYCCNT); //cyclesCounterToUs
-			taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
-		}
-		/*Proteger acceso al buffer*/
-		uxSavedInterruptStatus = taskENTER_CRITICAL_FROM_ISR();
-		Data.Buffer[Data.Index++]= c;
-		taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
-	}
-	else return;
-
-	if(Data.Index > sizeof(Data)-1) Data.Index =0;  /*Garantiza no desbordamiento del buffer*/
-
-	Data.Buffer[Data.Index] = 0; 					/*char NULL pos siguiente*/
-
-	if(_EOF == c){
-
-		InitTimeFlag = 1;
-		taskENTER_CRITICAL_FROM_ISR();
-			Data.t_eof = cyclesCounterToUs(*_DWT_CYCCNT);
-			taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
-		Data.StartFrame = 0;
-		Data.Ready = 1;
-		/*Frame buena en el buffer*/
-
-		xTaskNotifyFromISR(xTaskHandle_RxNotify,0,eNoAction,&xHigherPriorityTaskWoken);
-		Data.Index =0;
-	}
-}
-
 
 /*=================================================================================
  	 	 	 	 	 	selecionar puntero a cola segun operacion
@@ -203,29 +153,28 @@ char* itoa(int value, char* result, int base) {
 
 void Service(Module_Data_t *obj ){
 
-//Token_t Token;
+	//Token_t Token;
 	static Frame_parameters_t Frame_parameters  ;
 	char *PtrSOF = NULL;
 	char *PtrEOF = NULL;
 	void* XPointerQueUe = NULL; /*Puntero auxiliar  a cola*/
 	void *PcStringToSend;
 	PcStringToSend = NULL;
-	static uint8_t firstEntry = 0;
-
+	static uint8_t firstEntryOP = 0;
+	static uint32_t IdBackup = 0;
 
 	/*Proteger datos para hacer copia local*/
 	taskENTER_CRITICAL();
-		Frame_parameters.BufferAux = obj->MemoryAllocFunction(sizeof(Data.Buffer));
-		//Frame_parameters.T = obj->MemoryAllocFunction(sizeof(uint8_t));
-		//Frame_parameters.Operation = obj->MemoryAllocFunction(2 );
-		strcpy((char*)Frame_parameters.BufferAux ,(const char*)Data.Buffer);
+	Frame_parameters.BufferAux = obj->MemoryAllocFunction(sizeof(Data.Buffer));
+	strcpy((char*)Frame_parameters.BufferAux ,(const char*)Data.Buffer);
+	Data.Ready = 0;
 	taskEXIT_CRITICAL();
 
 	/*Buscar posición del inicio de la trama*/
 	PtrSOF = strchr((const char*)Frame_parameters.BufferAux,_SOF);
 
 	if( PtrSOF != NULL ){
-		/** Decodificar T :  T[0] -'0' *10 + T[1] - '0'*/
+		/** Decodificar T */
 		Frame_parameters.T =  ( *(PtrSOF +  OFFSET_TAMANO)-'0' )*10 + (*(PtrSOF +  OFFSET_TAMANO + 1)-'0' ) ;
 		/** Decodificar OP */
 		Frame_parameters.Operation = *(PtrSOF +  OFFSET_OP)-'0';
@@ -239,23 +188,31 @@ void Service(Module_Data_t *obj ){
 		Frame_parameters.Token->PayLoad = Frame_parameters.BufferAux; //{402ab}
 		Frame_parameters.Token->t_sof = Data.t_sof;
 		Frame_parameters.Token->t_eof = Data.t_eof;
-		if(!firstEntry){
-			firstEntry = 1;
-			Frame_parameters.Token->Id_de_paquete =0;
+		if(!firstEntryOP){
+			firstEntryOP = 1;
+			Frame_parameters.Token->Id_de_paquete = (IdBackup == 0 ? IdBackup : IdBackup+1) ;
 		}
 		taskEXIT_CRITICAL();
-
-	}
+		IdBackup = Frame_parameters.Token->Id_de_paquete;
+	}else firstEntryOP = 0;
 	/*Selecionar operaacion*/
 	XPointerQueUe = SelecQueueFromOperation(Frame_parameters.Operation);
 	if(XPointerQueUe != NULL){
-		/*Envía el puntero al buffer con la trama a la cola*/
-		ModuleDinamicMemory_send2(obj,&Frame_parameters,0,NULL,NULL,XPointerQueUe ,portMAX_DELAY);
+
+		/*Envía el puntero al buffer con la trama a la cola-valida cantidad de datos*/
+		if(*(Frame_parameters.BufferAux + OFFSET_DATO + Frame_parameters.T) == _EOF ){
+			/*si cumple el protocolo*/
+			ModuleDinamicMemory_send2(obj,&Frame_parameters,0,NULL,NULL,XPointerQueUe ,portMAX_DELAY);
+		}else if(Frame_parameters.Operation == OP4) {
+			/*Libera si no cumple elprotocolo*/
+			ModuleData.MemoryFreeFunction((Frame_parameters.BufferAux));
+			ModuleData.MemoryFreeFunction((Frame_parameters.Token));
+		}else ModuleData.MemoryFreeFunction((Frame_parameters.BufferAux));
 	}
 
 }
 /*=================================================================================
-* 	 	 	 	 	 	 	     	Report  Heap = 1 or stack = 0
+ * 	 	 	 	 	 	 	     	Report  Heap = 1 or stack = 0
  =================================================================================*/
 
 void Report( Module_Data_t *obj , char * XpointerQueue, uint8_t SelectHeapOrStack){
@@ -288,11 +245,66 @@ void Report( Module_Data_t *obj , char * XpointerQueue, uint8_t SelectHeapOrStac
 		*(PcStringToSend + 1) = *(Frame_parameters.BufferAux + 1);
 	}
 	ModuleData.MemoryFreeFunction( Frame_parameters.BufferAux);
-	 Frame_parameters.BufferAux = PcStringToSend;
+	Frame_parameters.BufferAux = PcStringToSend;
 	// Enviar a cola de TaskTxUARt
 	ModuleDinamicMemory_send2(obj,&Frame_parameters,0,NULL,NULL, xPointerQueue_3,portMAX_DELAY);
-
-	/*Libera memoria dinamica {300} recibido del buffer*/
-
 }
 
+
+/*=================================================================================
+						Almacena en el buffer de la RX ISR
+=================================================================================*/
+void Add_IncommingFrame(UBaseType_t uxSavedInterruptStatus ,BaseType_t xHigherPriorityTaskWoken, volatile char c){
+	char *PtrSOF = NULL;
+	char *PtrEOF = NULL;
+	void* XPointerQueUe = NULL; /*Puntero auxiliar  a cola*/
+	static uint8_t InitTimeFlag = 1;
+	uint8_t T = 0;
+
+	/*Verifica Inicio de trama*/
+	if(_SOF == c) Data.StartFrame = 1;
+
+
+	if(Data.StartFrame && !Data.Ready){
+
+		if(InitTimeFlag) {
+			InitTimeFlag = 0;
+			taskENTER_CRITICAL_FROM_ISR();
+			*_DWT_CYCCNT = 0;
+			Data.t_sof = cyclesCounterToUs(*_DWT_CYCCNT); //cyclesCounterToUs
+			taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
+		}
+		/*Proteger acceso al buffer*/
+		uxSavedInterruptStatus = taskENTER_CRITICAL_FROM_ISR();
+		Data.Buffer[Data.Index++]= c;
+		taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
+	}
+	else return;
+
+	if(Data.Index > sizeof(Data)-1) Data.Index =0;  /*Garantiza no desbordamiento del buffer*/
+
+	Data.Buffer[Data.Index] = 0; 					/*char NULL pos siguiente*/
+
+	if(_EOF == c  ){ // {004abcd}
+		PtrSOF = strchr((const char*)Data.Buffer,_SOF);
+		T =  ( *(PtrSOF +  OFFSET_TAMANO)-'0' )*10 + (*(PtrSOF +  OFFSET_TAMANO + 1)-'0' ) ;
+		if( T == (Data.Index - 5) )
+		//if( *(PtrSOF + OFFSET_DATO + T) == _EOF  )
+		{
+			InitTimeFlag = 1;
+			taskENTER_CRITICAL_FROM_ISR();
+			Data.t_eof = cyclesCounterToUs(*_DWT_CYCCNT);
+			taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
+			Data.StartFrame = 0;
+			Data.Ready = 1;
+			/*Frame buena en el buffer*/
+
+			xTaskNotifyFromISR(xTaskHandle_RxNotify,0,eNoAction,&xHigherPriorityTaskWoken);
+			Data.Index =0;
+		}else {
+
+			memset(Data.Buffer,0,sizeof(Data.Buffer));
+			Data.Index =0;
+		}
+	}
+}
