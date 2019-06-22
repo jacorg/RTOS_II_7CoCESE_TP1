@@ -95,7 +95,7 @@ typedef struct {
 
 extern SemaphoreHandle_t SemTxUart;
 extern SemaphoreHandle_t SemRxUart;
-extern SemaphoreHandle_t SemMutexUart;
+extern SemaphoreHandle_t SemMutexUart,SemReady;
 extern Module_Data_t ModuleData;
 extern TaskHandle_t xTaskHandle_RxNotify ;
 

@@ -17,7 +17,7 @@ volatile DataFrame_t Data;
 /*Datos de trama para decodificar */
 
 
-SemaphoreHandle_t SemTxUart,SemRxUart, SemMutexUart;  /*UartTx*/ /*UartRx*/ /*Mutex proteger Uart*/
+SemaphoreHandle_t SemTxUart,SemRxUart, SemMutexUart,SemReady;  /*UartTx*/ /*UartRx*/ /*Mutex proteger Uart*/
 
 /*instanciar Driver memoria dinamica*/
 Module_Data_t ModuleData;

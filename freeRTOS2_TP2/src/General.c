@@ -119,6 +119,7 @@ void QueueCreateAll(void){
 void semaphoreCreateAll(void){
 	SemTxUart 	 =  xSemaphoreCreateBinary();
 	SemMutexUart =	xSemaphoreCreateMutex() ;
+	SemReady = xSemaphoreCreateBinary();
 }
 /*=================================================================================
  	 	 	 	 	 	 	     	conversions
@@ -168,6 +169,7 @@ void Service(Module_Data_t *obj ){
 	Frame_parameters.BufferAux = obj->MemoryAllocFunction(sizeof(Data.Buffer));
 	strcpy((char*)Frame_parameters.BufferAux ,(const char*)Data.Buffer);
 	Data.Ready = 0;
+	xSemaphoreGive(SemReady);
 	taskEXIT_CRITICAL();
 
 	/*Buscar posición del inicio de la trama*/
@@ -297,6 +299,7 @@ void Add_IncommingFrame(UBaseType_t uxSavedInterruptStatus ,BaseType_t xHigherPr
 			taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
 			Data.StartFrame = 0;
 			Data.Ready = 1;
+			xSemaphoreTakeFromISR(SemReady,&xHigherPriorityTaskWoken);
 			/*Frame buena en el buffer*/
 
 			xTaskNotifyFromISR(xTaskHandle_RxNotify,0,eNoAction,&xHigherPriorityTaskWoken);
